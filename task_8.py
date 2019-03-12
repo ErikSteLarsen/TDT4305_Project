@@ -20,4 +20,4 @@ albumsFiltered = albumInfo.filter(lambda album: float(album[1]) == 5.0)
 result = artistInfo.join(albumsFiltered).map(lambda res: res[1][0][0] if res[1][0][1] == '' else res[1][0][1])
 distinctResult = result.distinct().sortBy(lambda x: x[0])
 
-distinctResult.coalesce(1).saveAsTextFile('results/result_8.tsv')
+distinctResult.coalesce(1).saveAsTextFile('result_8.tsv')

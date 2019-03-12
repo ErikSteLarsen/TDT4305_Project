@@ -41,4 +41,4 @@ result = artistMapping\
                     .sortBy(lambda x: float(x[1][1]), False)\
 
 
-result.map(lambda res: (str(res[1][0][0]) if str(res[1][0][1]) == '' else str(res[1][0][1])) + "\t" + str(res[1][0][2]) + "\t" + str(res[1][1])).coalesce(1).saveAsTextFile('results/result_9.tsv')
+result.map(lambda res: (str(res[1][0][0]) if str(res[1][0][1]) == '' else str(res[1][0][1])) + "\t" + str(res[1][0][2]) + "\t" + str(res[1][1])).coalesce(1).saveAsTextFile('result_9.tsv')

@@ -16,4 +16,4 @@ result = artistInfo\
                 .sortBy(lambda x: x[1], False)
 
 
-result.map(lambda res: res[0].encode("utf-8") + "\t" + str(res[1])).coalesce(1).saveAsTextFile('results/result_3.tsv')
+result.map(lambda res: res[0].encode("utf-8") + "\t" + str(res[1])).coalesce(1).saveAsTextFile('result_3.tsv')

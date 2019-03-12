@@ -24,4 +24,4 @@ top10 = sparkcontext.parallelize(avgCritic.sortBy(lambda x: x[1][1], False).take
 # Join artists and album values on artist_id
 joinedInfo = artistAndCountry.join(top10).sortBy(lambda x: x[1][1][0], True)
 
-joinedInfo.map(lambda res: str(res[1][1][0]) + "\t" + str(res[1][1][1]) + "\t" + res[1][0]).coalesce(1).saveAsTextFile('results/result_7.tsv')
+joinedInfo.map(lambda res: str(res[1][1][0]) + "\t" + str(res[1][1][1]) + "\t" + res[1][0]).coalesce(1).saveAsTextFile('result_7.tsv')

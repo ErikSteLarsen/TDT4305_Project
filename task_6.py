@@ -19,7 +19,7 @@ result = avgCritic\
                 .filter(lambda x: x[1] < 10)
 
 
-result.map(lambda res: str(res[0][0]) + "\t" + str(res[0][1])).coalesce(1).saveAsTextFile('results/result_6.tsv')
+result.map(lambda res: str(res[0][0]) + "\t" + str(res[0][1])).coalesce(1).saveAsTextFile('result_6.tsv')
 
 
 

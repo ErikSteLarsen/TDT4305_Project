@@ -16,4 +16,4 @@ result = albumInfo\
                 .sortBy(lambda x: x[1], False)
 
 
-result.map(lambda res: str(res[0]) + "\t" + str(res[1])).coalesce(1).saveAsTextFile('results/result_4.tsv')
+result.map(lambda res: str(res[0]) + "\t" + str(res[1])).coalesce(1).saveAsTextFile('result_4.tsv')
