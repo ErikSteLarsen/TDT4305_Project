@@ -2,6 +2,7 @@ from pyspark.sql import SQLContext
 from pyspark import SparkContext
 from pyspark import SparkConf
 from pyspark.sql.types import *
+from pyspark.sql.functions import countDistinct
 
 sparkConf = SparkConf().setMaster("local[*]")
 sparkContext = SparkContext.getOrCreate(sparkConf)
@@ -43,4 +44,30 @@ artistSchema = StructType([
 albumDF = sqlContext.createDataFrame(albumRDD, albumSchema)
 artistDF = sqlContext.createDataFrame(artistRDD, artistSchema)
 
-artistDF.select(["id"]).distinct().show()
+
+# Task A) and D) solved here, with aggregation
+artistValues = artistDF.agg(countDistinct("id"), countDistinct("country"))
+artistValues.show()
+
+# Task B) and C), also solved with aggregation over distinct elements in the two columns
+albumValues = albumDF.agg(countDistinct("id"), countDistinct("genre"))
+albumValues.show()
+
+# Task E) min year_of_pub
+minPublish = albumDF.agg({"year_of_pub": "min"})
+minPublish.show()
+
+# Task F) max year_of_pub
+maxPublish = albumDF.agg({"year_of_pub": "max"})
+maxPublish.show()
+
+# Task G) min year_of_birth
+minBirth = artistDF.agg({"year_of_birth": "min"})
+minBirth.show()
+
+# Task H max year_of_birth
+maxBirth = artistDF.agg({"year_of_birth": "max"})
+maxBirth.show()
+
+
+
