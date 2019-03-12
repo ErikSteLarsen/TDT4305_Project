@@ -17,6 +17,7 @@ artistAndCountry = artistMapping.map(lambda artist: (artist[0], artist[5]))
 
 # As in task_6, finding the top 10 rated albums, and also include the artist ID
 avgCritic = albumMapping.map(lambda album: (album[1], (album[0], (float(album[7]) + float(album[8]) + float(album[9]))/3)))
+# I did this with .take(10) because my results were already complicated, so I didnt want to mess it up.
 top10 = sparkcontext.parallelize(avgCritic.sortBy(lambda x: x[1][1], False).take(10))
 
 
